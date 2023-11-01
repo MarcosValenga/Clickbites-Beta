@@ -1,0 +1,19 @@
+{
+    "description": "Projeto ClickBites",
+    "authors": [
+        {
+            "name": "Marcos Valenga",
+            "email": "marcosvalenga360@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Core\\": "core",
+            "App\\": "app",
+            "ClickBites\\": "app/sistcb"
+        }
+    },
+    "require": {
+        "phpmailer/phpmailer": "^6.8"
+    }
+}
