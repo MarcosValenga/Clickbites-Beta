@@ -13,7 +13,24 @@
             "ClickBites\\": "app/sistcb"
         }
     },
+    "scripts": {
+        "post-autoload-dump": [
+            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+            "@php artisan package:discover --ansi"
+        ],
+        "post-root-package-install": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ],
+        "post-create-project-cmd": [
+            "@php artisan key:generate --ansi"
+        ]
+    },
     "require": {
-        "phpmailer/phpmailer": "^6.8"
+        "phpmailer/phpmailer": "^6.8",
+        "bacon/bacon-qr-code": "^2.0",
+        "chillerlan/php-qrcode": "^4.3",
+        "endroid/qr-code": "4.0",
+        "laravel/ui": "^3.4"
+ 
     }
 }

@@ -46,7 +46,9 @@ class ConfigController extends Config
             //var_dump($this->urlArray);
 
             if (isset($this->urlArray[0])) {
+                //var_dump($this->urlArray[0]);
                 $this->urlController = $this->slugController($this->urlArray[0]);
+                //var_dump($this->urlController);
             } else {
                 $this->urlController = $this->slugController(CONTROLLER);
             }
@@ -63,6 +65,7 @@ class ConfigController extends Config
                 $this->urlParameter = "";
             }
         } else {
+            //var_dump("Passou aqui");
             $this->urlController = $this->slugController(CONTROLLERERRO);
             $this->urlMetodo = METODO;
             $this->urlParameter = "";
@@ -104,12 +107,16 @@ class ConfigController extends Config
     private function slugController($slugController) :string
     {
         $this->urlSlugController = $slugController;
+        //var_dump($this->urlSlugController);
         //Converter para minusculo
         $this->urlSlugController = strtolower($this->urlSlugController);
+        //var_dump($this->urlSlugController);
         //Converter traço para espaço em branco
         $this->urlSlugController = str_replace("-"," ", $this->urlSlugController);
+        //var_dump($this->urlSlugController);
         //Converter a primeira letra de cada palavra em maisculo
         $this->urlSlugController = ucwords($this->urlSlugController);
+        //var_dump($this->urlSlugController);
         //Retirar espaço em branco
         $this->urlSlugController = str_replace(" ","", $this->urlSlugController);
 

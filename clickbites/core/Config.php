@@ -11,8 +11,8 @@ abstract class Config
 {
     protected function configAdm()
     {
-        define('URL', 'http://localhost/clickbites/');
-        define('URLADM', 'http://localhost/clickbites/adm/');
+        define('URL', 'http://localhost/clickbitesofc/');
+        define('URLADM', 'http://localhost/clickbitesofc/clickbites/');
 
         define('CONTROLLER', 'Login');
         define('METODO', 'index');
