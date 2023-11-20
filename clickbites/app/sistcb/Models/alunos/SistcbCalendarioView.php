@@ -1,6 +1,6 @@
 <?php
 
-namespace App\sistcb\Models\nutricionistas;
+namespace App\sistcb\Models\alunos;
 
 if (!defined('CL1K3B1T35')) {
     header("Location: /");
@@ -11,7 +11,7 @@ if (!defined('CL1K3B1T35')) {
  * Modelo para manipulação de dados de eventos do calendário
  * @package App\sistcb\Models\nutricionistas
  */
-class SistcbCalendarioInterativo
+class SistcbCalendarioView
 {
     private bool $result;
     private array|null $resultBd;

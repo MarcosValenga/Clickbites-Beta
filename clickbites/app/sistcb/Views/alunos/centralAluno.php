@@ -15,7 +15,9 @@ if(!defined('CL1K3B1T35')){
                 echo $_SESSION['msg'];
                 unset($_SESSION['msg']);
             }
+
             ?>
+
             <span id="msg"></span>
         </div>
     </div>

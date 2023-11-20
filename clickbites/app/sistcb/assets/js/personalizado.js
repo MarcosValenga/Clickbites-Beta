@@ -1,13 +1,10 @@
 document.addEventListener('DOMContentLoaded', function () {
     var calendarEl = document.getElementById('calendar');
     var eventsData = JSON.parse(calendarEl.getAttribute('data-events'));
-    console.log('Dados JSON recebidos:', eventsData);
-
 
     var calendar = new FullCalendar.Calendar(calendarEl, {
         locale: 'pt-br',
         plugins: ['interaction', 'dayGrid'],
-        //defaultDate: '2019-04-12',
         editable: true,
         eventLimit: true,
         events: eventsData,
@@ -17,15 +14,14 @@ document.addEventListener('DOMContentLoaded', function () {
             };
         },
         eventClick: function (info) {
-            $("#apagar_evento").attr("href", "proc_apagar_evento.php?id=" + info.event.id);
-            info.jsEvent.preventDefault(); // don't let the browser navigate
-            console.log(info.event);
+            $("#apagar_evento").attr("href", "http://localhost/clickbitesofc/clickbites/delete-evento/index?id=" + info.event.id + "&idSala=" + info.event.extendedProps.fk_sala_id);
+
+            info.jsEvent.preventDefault();
             $('#visualizar #id').text(info.event.id);
             $('#visualizar #id').val(info.event.id);
-            $('#visualizar #nome_refeicao').text(info.event.nome_refeicao);
-            $('#visualizar #nome_refeicao').val(info.event.nome_refeicao);
-            $('#visualizar #descricao').text(info.event.descricao);
-            $('#visualizar #descricao').val(info.event.descricao);
+            $('#visualizar #title').text(info.event.title);
+            $('#visualizar #title').val(info.event.title);
+            $("#visualizar #descricao").text(info.event.extendedProps.descricao); // Aqui acessamos a propriedade 'descricao'
             $('#visualizar #start').text(info.event.start.toLocaleString());
             $('#visualizar #start').val(info.event.start.toLocaleString());
             $('#visualizar #end').text(info.event.end.toLocaleString());
@@ -40,6 +36,7 @@ document.addEventListener('DOMContentLoaded', function () {
             $('#cadastrar #end').val(info.end.toLocaleString());
             $('#cadastrar').modal('show');
         }
+        
     });
 
     calendar.render();
@@ -78,23 +75,28 @@ function DataHora(evento, objeto) {
     }
 }
 
+
 $(document).ready(function () {
     $("#addevent").on("submit", function (event) {
         event.preventDefault();
-       $.ajax({
+        var scriptElement = document.getElementById('recuperaridSala');
+        // Obtém o valor do atributo de dados 'data-idsala'
+        var idSala = scriptElement.getAttribute('data-idsala');
+        var link = "http://localhost/clickbitesofc/clickbites/add-evento/index?idSala=" + idSala;
+
+
+        // Obtenha os dados do formulário
+        var formData = new FormData(this);
+
+
+        $.ajax({
             method: "POST",
-            url: "cad_event.php",
-            data: new FormData(this),
+            url: link,
+            data: formData,
             contentType: false,
             processData: false,
-            success: function (retorna) {
-                if (retorna['sit']) {
-                    //$("#msg-cad").html(retorna['msg']);
-                    location.reload();
-                } else {
-                    $("#msg-cad").html(retorna['msg']);
-                }
-            }
+            success: location.reload()
+            
         })
     });
     
@@ -110,20 +112,25 @@ $(document).ready(function () {
     
     $("#editevent").on("submit", function (event) {
         event.preventDefault();
+
+        var scriptElement = document.getElementById('recuperaridSala');
+        // Obtém o valor do atributo de dados 'data-idsala'
+        var idSala = scriptElement.getAttribute('data-idsala');
+        var linkedit = "http://localhost/clickbitesofc/clickbites/edit-evento/index?idSala=" +idSala;
+        console.log(linkedit);
+
+        for (var pair of new FormData(this)) {
+            console.log(pair[0] + ': ' + pair[1]);
+        }
+        
        $.ajax({
             method: "POST",
-            url: "edit_event.php",
+            url: linkedit,
             data: new FormData(this),
             contentType: false,
             processData: false,
-            success: function (retorna) {
-                if (retorna['sit']) {
-                    //$("#msg-cad").html(retorna['msg']);
-                    location.reload();
-                } else {
-                    $("#msg-edit").html(retorna['msg']);
-                }
-            }
+            success: location.reload()
         })
     });
 });
+

@@ -67,7 +67,7 @@ class CarregarPg
 
     private function pgPrivateAlunos(): void
     {
-        $this->listPgAlunos = ["CentralAluno", "ViewProfileAluno", "EditProfileAluno", "DesvincularSala"];
+        $this->listPgAlunos = ["CentralAluno", "ViewProfileAluno", "EditProfileAluno", "DesvincularSala", "CalendarioView"];
         //var_dump($this->urlController);
         //var_dump($this->listPgAlunos);
         if(in_array($this->urlController, $this->listPgAlunos)){
@@ -79,7 +79,7 @@ class CarregarPg
 
     private function pgPrivateNutricionistas(): void
     {
-        $this->listPgNutricionistas = ["CentralNutricionista", "ViewProfile", "EditProfile", "EditProfileImage", "EditProfilePassword", "SalasNutricionista", "AddSala", "DeleteSala", "CalendarioInterativo"];
+        $this->listPgNutricionistas = ["CentralNutricionista", "ViewProfile", "EditProfile", "EditProfileImage", "EditProfilePassword", "SalasNutricionista", "AddSala", "DeleteSala", "CalendarioInterativo", "DeleteEvento", "AddEvento", "EditEvento"];
         if(in_array($this->urlController, $this->listPgNutricionistas)){
             $this->verifyLogin();
         }else{

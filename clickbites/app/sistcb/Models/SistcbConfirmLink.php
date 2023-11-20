@@ -88,6 +88,7 @@ class SistcbConfirmLink
 
         if ($upConfLink->getResult()) {
             $_SESSION['msg'] = "<p class='alert-success'>Bem-vindo à sala! Sua entrada foi um sucesso!</p>";
+            $_SESSION['user_vinculo'] = $this->resultBd[0]['id'];
             $this->result = true;
         } else {
             $_SESSION['msg'] = "<p class='alert-danger'>Ops! Parece que algo deu errado ao tentar entrar na sala. Por favor, tente novamente mais tarde. Se o problema persistir, entre em contato conosco para que possamos ajudar a resolver isso.";

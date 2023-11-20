@@ -50,7 +50,7 @@ class SistcbLogin
         $viewNutricionista->fullRead("SELECT id, nome, email, password, imagem, fk_sits_usuario FROM nutricionistas WHERE user =:user OR email =:email LIMIT :limit", "user={$this->data['user']}&email={$this->data['user']}&limit=1");
 
         $viewAluno = new \App\sistcb\Models\helper\SistcbRead();
-        $viewAluno->fullRead("SELECT id, nome, email, password, imagem, fk_sits_usuario FROM alunos WHERE user =:user OR email =:email LIMIT :limit", "user={$this->data['user']}&email={$this->data['user']}&limit=1");
+        $viewAluno->fullRead("SELECT id, nome, email, password, imagem, fk_sits_usuario, fk_sala_id FROM alunos WHERE user =:user OR email =:email LIMIT :limit", "user={$this->data['user']}&email={$this->data['user']}&limit=1");
 
         $resultNutricionista = $viewNutricionista->getResult();
         $resultAluno = $viewAluno->getResult();
@@ -113,6 +113,7 @@ class SistcbLogin
             $_SESSION['user_nome'] = $this->resultBd[0]['nome'];
             $_SESSION['user_email'] = $this->resultBd[0]['email'];
             $_SESSION['user_imagem'] = $this->resultBd[0]['imagem'];
+            $_SESSION['user_vinculo'] = $this->resultBd[0]['fk_sala_id'];
             $this->result = true;
         } else {
             $_SESSION['msg'] = "<p class='alert-danger'>Erro: Usuário ou a senha incorreta!</p>";

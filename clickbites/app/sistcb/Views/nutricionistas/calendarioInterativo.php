@@ -7,11 +7,11 @@ if (!defined('CL1K3B1T35')) {
 
 if (isset($this->data['event'])) {
     $valorForm = $this->data['event'];
-    var_dump($valorForm);
 }
+$idSala = filter_input(INPUT_GET, "id", FILTER_VALIDATE_INT);
 
 ?>
-
+<div id="recuperaridSala" data-idsala="<?php echo $idSala; ?>"></div>
 
 
 <!-- Inicio do conteudo do administrativo -->
@@ -49,7 +49,7 @@ if (isset($this->data['event'])) {
                         <div class="visevent">
                             <dl class="row">
                                 <dt class="col-sm-3">Título</dt>
-                                <dd class="col-sm-9" id="nome_refeicao"></dd>
+                                <dd class="col-sm-9" id="title"></dd>
 
                                 <dt class="col-sm-3">Descrição</dt>
                                 <dd class="col-sm-9" id="descricao"></dd>
@@ -70,7 +70,7 @@ if (isset($this->data['event'])) {
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label">Título</label>
                                     <div class="col-sm-10">
-                                        <input type="text" name="nome_refeicao" class="form-control" id="nome_refeicao"  required>
+                                        <input type="text" name="title" class="form-control" id="title"  required>
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -113,7 +113,7 @@ if (isset($this->data['event'])) {
                                 <div class="form-group row">
                                     <div class="col-sm-10">
                                         <button type="button" class="btn btn-primary btn-canc-edit">Cancelar</button>
-                                        <button type="submit" name="CadEvent" id="CadEvent" value="CadEvent" class="btn btn-warning">Salvar</button>                                    
+                                        <button type="submit" name="EditEvent" id="EditEvent" value="EditEvent" class="btn btn-warning">Salvar</button>                                    
                                     </div>
                                 </div>
                             </form>                            
@@ -138,15 +138,13 @@ if (isset($this->data['event'])) {
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">Título</label>
                                 <div class="col-sm-10">
-                                    <input type="text" name="nome_refeicao" class="form-control" id="nome_refeicao"  required>
+                                    <input type="text" name="title" class="form-control" id="title"  required>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">Descrição</label>
                                 <div class="col-sm-10">
                                     <textarea type="text" name="descricao" class="form-control" id="descricao" placeholder="Descrição..."></textarea>
-                                    <small class="char-count">0/220 caracteres</small>
-                                    <small class="char-limit d-none">Limite de caracteres atingido!</small>
                                 </div>
                             </div>
                             <div class="form-group row">

@@ -1,22 +1,20 @@
 <?php
 
-namespace App\sistcb\Controllers\nutricionistas;
+namespace App\sistcb\Controllers\alunos;
 
 if (!defined('CL1K3B1T35')) {
     header("Location: /");
     die("Erro: Página não encontrada<br>");
 }
 
-class CalendarioInterativo
+class CalendarioView
 {
     private array $data;
     private int $idSala;
-    private array|null $dataForm;
 
     public function index(): void
     {
         $this->idSala = filter_input(INPUT_GET, "id", FILTER_VALIDATE_INT);
-        $this->dataForm = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 
         if (!empty($this->idSala)) {
             $this->valSalaCalendar();
@@ -28,7 +26,7 @@ class CalendarioInterativo
 
     private function valSalaCalendar(): void
     {
-        $valSalaCalendar = new \App\sistcb\Models\nutricionistas\SistcbCalendarioInterativo();
+        $valSalaCalendar = new \App\sistcb\Models\alunos\SistcbCalendarioView();
         $valSalaCalendar->obterEventos($this->idSala);
 
         if ($valSalaCalendar->getResult()){
@@ -39,8 +37,8 @@ class CalendarioInterativo
         }
         
 
-        $loadView = new \Core\ConfigView("sistcb/Views/nutricionistas/calendarioInterativo", $this->data);
-        $loadView->loadViewNutricionista();
+        $loadView = new \Core\ConfigView("sistcb/Views/alunos/calendarioView", $this->data);
+        $loadView->loadViewAluno();
         
     }
 }

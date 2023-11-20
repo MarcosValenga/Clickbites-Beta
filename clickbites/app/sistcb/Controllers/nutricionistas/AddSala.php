@@ -22,7 +22,6 @@ class AddSala
         if (!empty($this->dataForm['SendAddSala'])) {
             unset($this->dataForm['SendAddSala']);
             $addSala = new \App\sistcb\Models\nutricionistas\SistcbAddSala();
-            
             $addSala->create($this->dataForm);
 
             if ($addSala->getResult()) {

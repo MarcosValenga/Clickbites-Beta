@@ -51,6 +51,7 @@ class SistcbDesvincularSala
     
                 if ($desSala->getResult()) {
                     $_SESSION['msg'] = "<p class='alert-success'>Você foi desvinculado da sala com sucesso!</p>";
+                    unset($_SESSION['user_vinculo']);
                     $this->result = true;
                 } else {
                     $_SESSION['msg'] = "<p class='alert-danger'>Erro: Não foi possível desvincular da sala. Por favor, tente novamente mais tarde.</p>";
