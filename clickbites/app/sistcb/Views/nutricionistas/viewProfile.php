@@ -58,10 +58,12 @@ if(!defined('CL1K3B1T35')){
                 </div>
 
                 <div class="view-det-adm">
-                    <span class="view-adm-title">Certificado Nutricionista: </span>
+                    <span class="view-adm-title">Certificado Nutricionista:</span>
                     <?php
                         if (isset($certificado_nut) && !is_null($certificado_nut)) {
                             echo "<span class='view-adm-info'>$certificado_nut</span>";
+                        }else{
+                            echo "<span class='view-adm-info'>Nenhum Certificado Indexado</span>";
                         }
                     ?>
                     

@@ -2,7 +2,7 @@
 
 namespace App\sistcb\Models;
 
-if(!defined('CL1K3B1T35')){
+if (!defined('CL1K3B1T35')) {
     header("Location: /");
     die("Erro: Página não encontrada<br>");
 }
@@ -45,16 +45,16 @@ class SistcbConfirmLink
     {
         $this->key = $key;
 
-        if ($_SESSION['user_tipo'] === 'aluno'){
+        if ($_SESSION['user_tipo'] === 'aluno') {
             $this->tipo_usr = 'alunos';
-        }else{
+        } else {
             $_SESSION['msg'] = "<p class='alert-danger'>Erro: Faça login como aluno e acesse o link novamente para entrar na sala!</p>";
             $urlRedirect = URLADM . "login/index";
             header("Location: $urlRedirect");
         }
-        
+
         // Verifica se já existe um valor em fk_sala_id para o aluno
-        if ($this->valExistVinculo()){
+        if ($this->valExistVinculo()) {
             if (!empty($this->key)) {
                 $viewKeyConfLink = new \App\sistcb\Models\helper\SistcbRead();
                 $viewKeyConfLink->fullRead("SELECT id 
@@ -72,7 +72,7 @@ class SistcbConfirmLink
                 $_SESSION['msg'] = "<p class='alert-danger'>Erro 3</p>";
                 $this->result = false;
             }
-        }else{
+        } else {
             $_SESSION['msg'] = "<p class='alert-danger'>Você já está vinculado a uma sala. Para desvincular, acesse as configurações.</p>";
             $this->result = false;
         }
@@ -84,7 +84,7 @@ class SistcbConfirmLink
         $this->dataSave['modified'] = date("Y-m-d H:i:s");
 
         $upConfLink = new \App\sistcb\Models\helper\SistcbUpdate();
-        $upConfLink->exeUpdate($this->tipo_usr, $this->dataSave, "WHERE id=:id", "id=".$_SESSION['user_id']);
+        $upConfLink->exeUpdate($this->tipo_usr, $this->dataSave, "WHERE id=:id", "id=" . $_SESSION['user_id']);
 
         if ($upConfLink->getResult()) {
             $_SESSION['msg'] = "<p class='alert-success'>Bem-vindo à sala! Sua entrada foi um sucesso!</p>";
@@ -98,18 +98,15 @@ class SistcbConfirmLink
 
 
     private function valExistVinculo(): bool
-    {   
+    {
         $read = new \App\sistcb\Models\helper\SistcbRead();
-        $read->fullRead("SELECT fk_sala_id FROM ($this->tipo_usr) WHERE id = :id", "id=".$_SESSION['user_id']);
-    
+        $read->fullRead("SELECT fk_sala_id FROM ".$this->tipo_usr." WHERE id = :id", "id=" . $_SESSION['user_id']);
+
         $result = $read->getResult();
         if (!empty($result[0]['fk_sala_id'])) {
             return false;
-        }else{
-            return true;  
+        } else {
+            return true;
         }
-    
-        
     }
-    
 }

@@ -1,5 +1,6 @@
- <!-- Inicio Navbar -->
- <nav class="navbar">
+<header>
+    <!-- Inicio Navbar -->
+    <nav class="navbar">
         <div class="navbar-content">
             <!--<div class="bars">
                 <i class="fa-solid fa-bars fa-xl"></i>
@@ -7,7 +8,7 @@
             <img src="<?php echo URLADM; ?>app/sistcb/assets/logos/logo2.png" alt="Celke" class="logo">
             <h1>Click Bites</h1>
         </div>
-
+        
         <div class="navbar-content">
             <div class="avatar">
                 <?php 
@@ -18,15 +19,15 @@
                 }
                 ?>
                 <div class="dropdown-menu-real setting">
-                    <a id='link-rl-tr' href="<?php echo URLADM; ?>view-profile-aluno/index" class="item">
+                    <a  href="<?php echo URLADM; ?>view-profile-aluno/index" class="item">
                         <span class="fa-solid fa-user"></span> Perfil
                     </a>
                     
-                    <a id='link-rl-tr' href="<?php echo URLADM; ?>edit-profile-aluno/index/<?php echo $_SESSION['user_id']; ?>?tipo=<?php echo $_SESSION['user_tipo']; ?>" class="item">
+                    <a  href="<?php echo URLADM; ?>edit-profile-aluno/index/<?php echo $_SESSION['user_id']; ?>?tipo=<?php echo $_SESSION['user_tipo']; ?>" class="item">
                         <span class="fa-solid fa-gear"></span> Configuração
                     </a>
 
-                    <a id='link-rl-tr' href="<?php echo URLADM; ?>logout/index" class="item">
+                    <a  href="<?php echo URLADM; ?>logout/index" class="item">
                         <span class="fa-solid fa-arrow-right-from-bracket"></span> Sair
                     </a>
                 </div>
@@ -34,3 +35,4 @@
         </div>
     </nav>
     <!-- Fim Navbar -->
+</header>

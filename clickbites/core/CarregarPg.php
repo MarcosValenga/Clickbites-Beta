@@ -24,7 +24,7 @@ class CarregarPg
         $this->urlMetodo = $urlMetodo;
         $this->urlParameter = $urlParameter;
         
-        //var_dump($this->urlController);
+        var_dump($this->urlController);
         //var_dump($this->urlMetodo);
         //var_dump($this->urlParameter);
         //unset($_SESSION['user_id']);

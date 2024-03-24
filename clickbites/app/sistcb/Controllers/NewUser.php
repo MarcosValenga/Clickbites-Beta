@@ -67,7 +67,7 @@ class NewUser
      */
     private function viewNewUser(): void
     {
-        $loadView = new \Core\ConfigView("sistcb/Views/login/newUser", $this->data);
+        $loadView = new \Core\ConfigView("sistcb/Views/login/login", $this->data);
         $loadView->loadViewLogin();
     }
 }

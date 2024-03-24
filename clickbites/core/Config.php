@@ -20,7 +20,7 @@ abstract class Config
 
         define('HOST', 'localhost');
         define('USER', 'root');
-        define('PASS', '1234');
+        define('PASS', 'Marcos@20162020');
         define('DBNAME', 'cardapio_ofc');
         define('PORT', '3306');
 

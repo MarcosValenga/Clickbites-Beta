@@ -127,7 +127,7 @@ if (isset($this->data['form']['image'][0])) {
                 <div class="row-input">
                     <div class="column">
                     <label class="title-input">Sair da Sala: </label>
-                        <button class="btn-danger" ><?php echo "<a style='color: #000' href='" . URLADM . "desvincular-sala/index' onclick='return confirm(\"Tem certeza que deseja desvincular-se da sala?\")'>Desvincular</a>"; ?></button>
+                        <?php echo "<a style='color: #000' class='btn-danger' href='" . URLADM . "desvincular-sala/index' onclick='return confirm(\"Tem certeza que deseja desvincular-se da sala?\")'>Desvincular</a>"; ?>
                     </div>
                 </div>
                 <button type="submit" name="SendEditProfile" value="Salvar" class="btn-success">Salvar</button>

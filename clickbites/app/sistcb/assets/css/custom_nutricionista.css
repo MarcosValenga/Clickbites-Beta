@@ -4,7 +4,8 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "Ubuntu", sans-serif;
-    text-decoration: none;
+    text-decoration: none !important;
+
 }
 
 :root {
@@ -98,6 +99,7 @@ body {
     width: 280px;
     border-radius: 7px;
     display: none;
+   
 }
 
 .dropdown-content {
@@ -151,6 +153,7 @@ body {
 
 .dropdown-menu-real.setting {
     width: 150px;
+    
 }
 
 .dropdown-menu-real.active {

@@ -18,15 +18,15 @@
                 }
                 ?>
                 <div class="dropdown-menu-real setting">
-                    <a id="link-rl-tr" href="<?php echo URLADM; ?>view-profile/index" class="item">
+                    <a  href="<?php echo URLADM; ?>view-profile/index" class="item">
                         <span class="fa-solid fa-user"></span> Perfil
                     </a>
                     
-                    <a id="link-rl-tr" href="<?php echo URLADM; ?>edit-profile/index/<?php echo $_SESSION['user_id']; ?>?tipo=<?php echo $_SESSION['user_tipo']; ?>" class="item">
+                    <a href="<?php echo URLADM; ?>edit-profile/index/<?php echo $_SESSION['user_id']; ?>?tipo=<?php echo $_SESSION['user_tipo']; ?>" class="item">
                         <span class="fa-solid fa-gear"></span> Configuração
                     </a>
 
-                    <a id="link-rl-tr" href="<?php echo URLADM; ?>logout/index" class="item">
+                    <a  href="<?php echo URLADM; ?>logout/index" class="item">
                         <span class="fa-solid fa-arrow-right-from-bracket"></span> Sair
                     </a>
                 </div>

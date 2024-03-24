@@ -91,7 +91,9 @@ class ConfigController extends Config
         $this->url = rtrim($this->url, "/");
         $this->format['a'] = 'ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜüÝÞßàáâãäåæçèéêëìíîïðñòóôõöøùúûýýþÿRr"!@#$%&*()_-+={[}]?;:.,\\\'<>°ºª ';
         $this->format['b'] = 'aaaaaaaceeeeiiiidnoooooouuuuuybsaaaaaaaceeeeiiiidnoooooouuuyybyRr-------------------------------------------------------------------------------------------------';
-        $this->url = strtr(utf8_decode($this->url), utf8_decode($this->format['a']), $this->format['b']);
+        // Substitua "ISO-8859-1" pela codificação desejada, se necessário
+        $this->url = strtr(iconv('UTF-8', 'ISO-8859-1//TRANSLIT', $this->url), iconv('UTF-8', 'ISO-8859-1//TRANSLIT', $this->format['a']), $this->format['b']);
+        
     }
 
     /**

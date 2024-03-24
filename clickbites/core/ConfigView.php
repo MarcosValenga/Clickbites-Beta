@@ -39,7 +39,7 @@ class ConfigView
             include 'app/' . $this->nameView . '.php';
             include 'app/sistcb/Views/include/footerAluno.php';
         } else {
-            die("Erro - 002: Por favor tente novamente. Caso o problema persista, entre em contato o administrador " . EMAILADM);
+            die("Erro - 0021: Por favor tente novamente. Caso o problema persista, entre em contato o administrador " . EMAILADM);
         }
     }
 
@@ -58,7 +58,7 @@ class ConfigView
             include 'app/' . $this->nameView . '.php';
             include 'app/sistcb/Views/include/footerNutricionista.php';
         } else {
-            die("Erro - 002: Por favor tente novamente. Caso o problema persista, entre em contato o administrador " . EMAILADM);
+            die("Erro - 003: Por favor tente novamente. Caso o problema persista, entre em contato o administrador " . EMAILADM);
         }
     }
 
@@ -76,7 +76,7 @@ class ConfigView
             include 'app/' . $this->nameView . '.php';
             include 'app/sistcb/Views/include/footerlogin.php';
         } else {
-            die("Erro - 002: Por favor tente novamente. Caso o problema persista, entre em contato o administrador " . EMAILADM);
+            die("Erro - 004: Por favor tente novamente. Caso o problema persista, entre em contato o administrador " . EMAILADM);
         }
     }
 }
