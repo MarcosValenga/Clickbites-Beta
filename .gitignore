@@ -1,0 +1,5 @@
+# Ignorar Core do Projeto
+core/
+
+# iggnorar composer.lock
+composer.lock
