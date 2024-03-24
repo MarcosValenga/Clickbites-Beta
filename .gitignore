@@ -1,5 +1,5 @@
 # Ignorar Core do Projeto
-clickbites/core/
+/clickbites/core
 
 # iggnorar composer.lock
 clickbites/composer.lock
